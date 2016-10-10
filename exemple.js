@@ -20,7 +20,7 @@ console.log(chaine);
 // alert(message) permet d'ouvrir une message box, prompt(message) permet en plus de récupérer une réponse de l'utilisateur
 
 alert(chaine);
-prompt("Quel est votre âge ?");
+var age = prompt("Quel est votre âge ?");
 
 // Les conditions permettent d'effectuer des opérations si certains critères sont vérifiés
 // Les opérateurs de comparaison sont les suivants : == (égalité de valeur), === (égalité de type et de valeur)
