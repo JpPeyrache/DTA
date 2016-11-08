@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Titre</title>
+  </head>
+
+  <body>
+
+    <!-- <header> est la balise d'en-tête -->
+    <header>
+      <h1>Titre de mon site</h1>
+      <!-- <nav> permet de définir des sections indépendantes dans la navigation (menus de navigation notamment) -->
+      <nav>Menu de navigation</nav>
+    </header>
+
+    <!-- <main> est unique dans la page, il contient le contenu principal -->
+    <main>
+
+      <!-- <article> définit une partie indépendante de la page -->
+      <article>
+
+        <!-- <header> et <footer> peuvent être ré-utilisés dans les articles et les sections -->
+        <header>
+          <h2>Titre de l'article</h2>
+        </header>
+        <p>Contenu de l'article</p>
+        <footer>
+          Pied
+        </footer>
+
+      </article>
+
+        <!-- <aside> est un à-côté, il se rapporte à la dernière balise fermée -->
+      <aside>
+        Information sur l'article
+      </aside>
+
+      <!-- <section> permet de sectionner un document en catégories -->
+      <section>
+        Une section
+        <br />
+
+        <!-- Un formulaire a deux attributs essentiels : method pour le type d'envoi et action pour la page de traitement -->
+        <form method="POST" action="page.php" name="monformulaire">
+
+          <!-- Le label permet de définir la légende du champ, le for est lié avec l'id de l'input -->
+          <label for="nom">Votre nom : </label><input type="text" name="Texte1" id="nom" value="Défaut" required/>
+          <br />
+          <!-- Zone de texte plus grande -->
+          <textarea rows="10" cols="20"></textarea>
+          <br />
+
+          <!-- <fieldset> permet de séparer les parties du formulaire, <legend> permet de légender -->
+          <fieldset>
+            <legend>Des champs</legend>
+            <!-- Le champ password permet de ne pas afficher les caractères entrés -->
+            <input type="password" />
+            <br />
+            <!-- Vérifie qu'il s'agit d'une adresse mail valide -->
+            <input type="email" placeholder="test@gmail.com" />
+            <br />
+            <!-- Vérifie qu'il s'agit d'une url valide -->
+            <input type="url" />
+            <br />
+            <!-- Sur mobile, affiche le clavier numérique -->
+            <input type="tel" />
+            <br />
+            <!-- Requiert une valeur numérique -->
+            <input type="number" />
+            <br />
+            <!-- Propose une barre de "pourcentage" -->
+            <input type="range" />
+            <br />
+            <!-- Propose une frise de couleurs -->
+            <input type="color" />
+            <br />
+            <!-- Propose une sélection de dates (dépend du navigateur) -->
+            <input type="datetime" />
+        </fieldset>
+
+          <br />
+          <!-- Propose de sélectionner un fichier -->
+          <input type="file" />
+          <br />
+          <!-- Case à cocher -->
+          <input type="checkbox" id="case" checked /><label for="case">Satisfait ?</label>
+          <br />
+          <!-- Bouton radio -->
+          <input type="radio" />
+          <br />
+          <!-- Liste déroulante -->
+          <select name="liste">
+            <option value="A">Valeur A</option>
+            <option value="B">Valeur B</option>
+            <option value="C" selected>Valeur C</option>
+          </select>
+          <br />
+
+          <!-- submit est utilisé pour la validation du formulaire -->
+          <input type="submit" value="Envoyer" />
+        </form>
+        <br />
+      </section>
+
+    </main>
+
+    <aside>
+      Information supplémentaire
+    </aside>
+
+    <!-- <footer> contient les informations de pied de page -->
+    <footer>
+      Pied de page : contact, auteur...
+    </footer>
+
+  </body>
+</html>
