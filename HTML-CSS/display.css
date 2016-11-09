@@ -1,0 +1,9 @@
+.block{
+  display: block;
+  border-style: solid;
+}
+
+.inline-block{
+  display: inline-block;
+  border-style: solid;
+}
