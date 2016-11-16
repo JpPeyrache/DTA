@@ -40,7 +40,7 @@ include("index.html");
 
 // Plusieurs fonctions sont prédéfinies pour les chaînes de caractères
 // strlen, str_replace, str_shuffle, strtolower, strtoupper...
-// Mais aussi pour les dates : date('Y')
+// Mais aussi pour les dates : date('d-m-Y')
 
 // Une fonction se déclare de la manière suivante
 function DireBonjour($nom){
