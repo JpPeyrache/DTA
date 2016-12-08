@@ -1,0 +1,37 @@
+<!-- DOCTYPE pour indiquer au navigateur le langage à interpréter -->
+<!DOCTYPE html>
+
+<!--  On commence le code html et on spécifie la langue -->
+<html lang="fr">
+
+  <!-- Contient l'en-tête de la page -->
+  <head>
+
+    <!-- On spécifie le jeu de caractères utilisé et le titre de la page -->
+    <meta charset="utf-8" />
+    <title>Théorème de Pythagore</title>
+
+    <script type="text/javascript">
+      function hypothenuse(a,b){
+        return Math.sqrt(a*a+b*b);
+      }
+
+      function afficher(){
+        var hyp = hypothenuse(document.test.a.value,document.test.b.value);
+        document.test.hyp.value=hyp;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="test">
+      Côté A <input type="text" name="a" value=""/>
+      <br />
+      Côté B <input type="text" name="b" value="" />
+      <br />
+      Hypothénuse <input type="text" name="hyp" value="" />
+      <br />
+      <button onclick="afficher()">Ok</button>
+    </form>
+  </body>
+</html>

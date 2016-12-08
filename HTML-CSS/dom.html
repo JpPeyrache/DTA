@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exemple DOM</title>
+
+    <style>
+        .principale{
+            font-size: 1.4rem;
+        }
+        .discret{
+            color:#BBB;
+        }
+        .selected, .selected a, .selected a:link, .selected a:visited {
+            color:#0F0;
+        }
+        div{
+            background-color: orange;
+        }
+    </style>
+
+    <script>
+        function changeStyle(){
+            var entete = document.getElementById('entete');
+            console.log('entete', entete.style);
+            entete.style.height = '100px';
+            entete.style.backgroundColor = '#FF0';
+        }
+        function changeClass(){
+            var listItems = document.getElementsByTagName('li');
+            console.log(listItems);
+            console.log(listItems[2]);
+            listItems[2].classList.add('selected');
+            console.log('classList', listItems[2].classList);
+        }
+        function supprimeClass(){
+            var ul0 = document.getElementsByTagName('ul')[0];
+            ul0.classList.remove('discret');
+            console.log('ul0', ul0.classList);
+        }
+        function updateEntete(){
+            document.getElementById('title').innerText = 'Titre modifié';
+        }
+        function updateEnteteHTML(){
+            var titre = document.getElementById('title');
+            // déconseillé à terme , mais rapide
+            //titre.innerHTML='<span>»»»</span> Titre <span class="principale">modifié</span>';
+            var contenuTitre = document.createTextNode('Titre ');
+            console.log('titre.children', titre.children);
+            var chevrons = titre.children[0];
+            titre.innerText = '';
+            titre.appendChild(chevrons);
+            titre.appendChild(contenuTitre);
+            var newSpan = document.createElement('span');
+            newSpan.innerText = 'modifié';
+            newSpan.classList.add('principale');
+            titre.appendChild(newSpan);
+        }
+        function ajouteDiv(){
+            var nouvelleDiv = document.createElement('div');
+            nouvelleDiv.innerText = 'nouvelle div';
+            nouvelleDiv.addEventListener('mouseover', function(evenement){
+                nouvelleDiv.style.backgroundColor ='yellow';
+            } );
+            nouvelleDiv.addEventListener('mouseout', function(evenement){
+                nouvelleDiv.style.backgroundColor ='orange';
+            } );
+            nouvelleDiv.addEventListener('click', onNewDivClick );
+            document.body.appendChild(nouvelleDiv);
+        }
+        function onNewDivClick(evenement){
+            console.log('nouvelle div click', evenement);
+        }
+    </script>
+
+</head>
+<body>
+
+<header id="entete">
+    <h1 id="title"><span>»»» </span>Le Dom</h1>
+</header>
+
+<ul class="principale discret">
+    <li>Manipulation
+        <ul>
+            <li>
+                <a href="#" onclick="changeStyle()">styles</a>
+            </li>
+            <li><a href="#" onclick="changeClass()">ajout classe selected</a></li>
+            <li><a href="#" onclick="supprimeClass()">supprime class discrete</a></li>
+            <li><a href="#" onclick="updateEntete()">updateEntete</a></li>
+            <li><a href="#" onclick="updateEnteteHTML()">updateEntete - inner HTML</a></li>
+        </ul>
+    </li>
+
+    <li>création
+    <ul>
+        <a href="#" onclick="ajouteDiv()">ajout d'element</a>
+    </ul>
+    </li>
+
+</ul>
+
+
+
+
+</body>
+</html>
