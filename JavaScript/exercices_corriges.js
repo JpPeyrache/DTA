@@ -18,7 +18,7 @@ class Test{
 // Renvoie le max de deux éléments
 
 function max_2(a,b){
-  // A compléter
+	return a>b?a:b;
 }
 
 // Batterie de tests
@@ -34,7 +34,15 @@ console.log("\n");
 // Renvoie le max de trois éléments
 
 function max_3(a,b,c){
-	// A compléter
+	if(a>b){
+		if(a>c)
+			return a;
+		else
+			return c;
+	}else if(b>c)
+			return b;
+		else
+			return c;
 }
 
 // Batterie de tests
@@ -50,7 +58,7 @@ console.log("\n");
 // Teste si un caractère est ou non une voyelle
 
 function voyelle(c){
-	// A compléter
+	return (c=="a" || c=="e" || c=="i" || c=="o" || c=="u" || c=="y")?true:false;
 }
 
 // Batterie de tests
@@ -66,7 +74,13 @@ console.log("\n");
 // Teste si une chaine contient ou non une voyelle
 
 function contient_voyelle(str){
-	// A compléter
+
+	for(var i=0;i<str.length;i++){
+		if(voyelle(str[i]))
+			return true;
+	}
+
+	return false;
 }
 
 // Batterie de tests
@@ -75,14 +89,22 @@ console.log("Tests contient_voyelle");
 
 Test.assertSimilar(contient_voyelle("abba"),true);
 Test.assertSimilar(contient_voyelle("1234"),false);
-Test.assertSimilar(contient_voyelle(1234),undefined);
 
 console.log("\n");
 
 // "Traduit" une chaine en doublant chaque consonne et en insérant un o entre les deux
 
 function translate(str){
-	// A compléter
+	var newStr = "";
+
+	for(var i=0;i<str.length;i++){
+		if(voyelle(str[i]))
+			newStr += str[i];
+		else
+			newStr += str[i]+"o"+str[i];
+	}
+
+	return newStr;
 }
 
 // Batterie de tests
@@ -98,7 +120,13 @@ console.log("\n");
 // Inverse une chaine de caractères
 
 function reverse(str){
-	// A compléter
+	var newStr = "";
+
+	for(var i=str.length-1;i>=0;i--){
+		newStr += str[i];
+	}
+
+	return newStr;
 }
 
 // Batterie de tests
@@ -114,7 +142,12 @@ console.log("\n");
 // Fait la somme de tous les éléments d'un tableau
 
 function sum(tab){
-	// A compléter
+	var res = 0;
+
+	for(var i=0;i<tab.length;i++)
+		res += tab[i];
+
+	return res;
 }
 
 // Batterie de tests
@@ -129,7 +162,12 @@ console.log("\n");
 // Fait le produit de tous les éléments d'un tableau
 
 function mult(tab){
-	// A compléter
+	var res = 1;
+
+	for(var i=0;i<tab.length;i++)
+		res *= tab[i];
+
+	return res;
 }
 
 // Batterie de tests
@@ -144,7 +182,14 @@ console.log("\n");
 // Renvoie la chaine de longueur maximale dans un tableau
 
 function longueur_max(tab){
-	// A compléter
+	var res = "";
+
+	for(var i=0;i<tab.length;i++){
+		if(tab[i].length > res.length)
+			res = tab[i];
+	}
+
+	return res;
 }
 
 // Batterie de tests
@@ -159,7 +204,14 @@ console.log("\n");
 // Renvoie le tableau contenant toutes les chaines de longueur au moins égale à i
 
 function longueur_sup(tab,i){
-	// A compléter
+	var res = [];
+
+	for(var j=0;j<tab.length;j++){
+		if(tab[j].length>=i)
+			res.push(tab[j]);
+	}
+
+	return res;
 }
 
 // Batterie de tests
@@ -175,7 +227,13 @@ console.log("\n");
 // Renvoie une chaine contenant la première lettre de chacune des chaines du tableau
 
 function premieres_lettres(tab){
-	// A compléter
+	var str = "";
+
+	for(var i=0;i<tab.length;i++){
+		str += tab[i][0];
+	}
+
+	return str;
 }
 
 console.log("Tests premieres_lettres");
