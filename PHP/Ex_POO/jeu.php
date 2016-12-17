@@ -36,7 +36,7 @@
 
           // Tant que le monstre est vivant (et le joueur aussi), le combat se déroule
           while($monstre->estVivant() && $joueur->estVivant()){
-            // On lance le dé pour déterminer la force de l'attaquer
+            // On lance le dé pour déterminer la force de l'attaque
             $degats = $joueur->attaqueMonstre($de->lanceDe());
             $monstre->subitDegats($degats);
 
@@ -53,11 +53,11 @@
 
           }
           $nb++;
-        }
-
-        // On regarde si le joueur est toujours vivant
-        if($joueur->estVivant()){
-          echo("Bravo, " . $joueur->getPseudo() . " a tué le monstre " . $monstre->getNom() . "<br /><br />");
+          
+	  // On regarde si le joueur est toujours vivant
+          if($joueur->estVivant()){
+            echo("Bravo, " . $joueur->getPseudo() . " a tué le monstre " . $monstre->getNom() . "<br /><br />");
+          }
         }
 
         // Message si le joueur est mort
