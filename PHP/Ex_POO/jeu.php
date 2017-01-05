@@ -22,42 +22,46 @@
         // On initialise le dé pour la partie
         $de = new De();
 
+        // On compte le nombre de combats
+        $nb = 1;
+
         // Tant que le joueur est vivant, il combat un monstre
-        while($joueur.estVivant()){
+        while($joueur->estVivant()){
+          // On affiche le numéro du combat
+          echo("<strong>Combat numéro " . $nb . "</strong><br /><br />");
+
           // On initialise un nouveau monstre facile
           $monstre = new MonstreFacile("Ivan le Terrible");
-          echo($joueur->getPseudo() . "est prêt à affronter " . $monstre.getNom() . "<br /><br />");
+          echo($joueur->getPseudo() . " est prêt à affronter " . $monstre->getNom() . "<br /><br />");
 
           // Tant que le monstre est vivant (et le joueur aussi), le combat se déroule
-          while($monstre.estVivant() && $joueur.estVivant()){
-            // On lance le dé pour déterminer la force de l'attaquer
+          while($monstre->estVivant() && $joueur->estVivant()){
+            // On lance le dé pour déterminer la force de l'attaque
             $degats = $joueur->attaqueMonstre($de->lanceDe());
             $monstre->subitDegats($degats);
 
-            echo($monstre->getNom() . "a subi " . $degats . " de dégats<br />");
+            echo($monstre->getNom() . " a subi " . $degats . " de dégats<br />");
             echo("Il lui reste " . $monstre->getSante() . " de santé<br /><br />");
-
-            sleep(2);
 
             // Le monstre attaque à son tour et le joueur essaye de se protéger
             $degats = $monstre->attaqueJoueur($de->lanceDe());
-            $joueur->activeBouclier();
+            $joueur->activeBouclier($de->lanceDe());
             $joueur->subitDegats($degats);
 
-            echo($joueur->getPseudo() . "a subi " . $degats . " de dégats<br />");
+            echo($joueur->getPseudo() . " a subi " . $degats . " de dégats<br />");
             echo("Il lui reste " . $joueur->getSante() . " de santé<br /><br />");
 
-            sleep(2);
           }
-
-          // On regarde si le joueur est toujours vivant
-          if($joueur.estVivant()){
-            echo("Bravo, " . $joueur.getPseudo() . " a tué le monstre " . $monstre.getNom() . "<br /><br />");
+          $nb++;
+          
+	  // On regarde si le joueur est toujours vivant
+          if($joueur->estVivant()){
+            echo("Bravo, " . $joueur->getPseudo() . " a tué le monstre " . $monstre->getNom() . "<br /><br />");
           }
         }
 
         // Message si le joueur est mort
-        echo($joueur.getPseudo() . " est mort, tué par le monstre " . $monstre.getNom() . "<br />");
+        echo($joueur->getPseudo() . " est mort, tué par le monstre " . $monstre->getNom() . "<br />");
       }else{
         // Sinon, on affiche le formulaire pour que le joueur entre son pseudo
     ?>
