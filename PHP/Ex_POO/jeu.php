@@ -53,7 +53,7 @@
 
           }
           $nb++;
-          
+
 	  // On regarde si le joueur est toujours vivant
           if($joueur->estVivant()){
             echo("Bravo, " . $joueur->getPseudo() . " a tué le monstre " . $monstre->getNom() . "<br /><br />");
