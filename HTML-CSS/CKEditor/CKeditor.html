@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mini-CMS</title>
+    <!-- On charge le script de ckeditor -->
+    <script src="ckeditor/ckeditor.js"></script>
+  </head>
+  <body>
+    <!-- Un formulaire avec un champ de titre et une zone de texte pour l'article -->
+    <form class="Form" action="CKeditor.php" method="post">
+      <input type="text" name="titre" id="title" required />
+      </br>
+      <textarea name="zoneTexte" id="zoneTexte" rows="10" cols="80">
+      </textarea>
+
+      <!-- On remplace la zone de texte par un éditeur CKEditor en utilisant la fonction prédéfinie -->
+      <script>CKEDITOR.replace( 'zoneTexte' );</script>
+
+      <input class="button" name="save" type="submit" value="Save"/>
+
+    </form>
+
+
+  </body>
+</html>
