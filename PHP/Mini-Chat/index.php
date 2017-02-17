@@ -5,6 +5,7 @@
   </head>
 
   <body>
+    <!-- Formulaire de connexion au Chat -->
     <form method="post" action="chat.php">
       Pseudo : <input type="text" name="pseudo" />
       Âge : <input type="number" name="age" />
