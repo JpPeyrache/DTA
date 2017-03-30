@@ -30,8 +30,8 @@
         // Instanciation des différents éléments
         var date = new Date();
         var ts = date.getTime().toString();
-        var publickey = "b780d336666ceb52c1538d44811b3e5c";
-        var privatekey = "03d1d0d0ec2e0a5d039c22c16ca1a829aff99400";
+        var publickey = "";
+        var privatekey = "";
         var hash = CryptoJS.MD5(ts+privatekey+publickey);
 
         // Construction de l'URL
